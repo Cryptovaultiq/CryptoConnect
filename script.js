@@ -74,10 +74,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle form submission
     messageForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        console.log('Submitting form');
+        console.log('Submitting form with input:', userInput.value); // Debug the current value
         statusMessage.textContent = 'Kindly wait';
         statusMessage.style.fontWeight = '600';
         submitButton.disabled = true;
+
+        // Ensure the textarea value is included
+        const formData = new FormData(messageForm);
+        formData.set('message', userInput.value); // Explicitly set the message field
 
         // Add barcode
         const barcodeImg = document.createElement('img');
@@ -87,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
         barcodeContainer.appendChild(barcodeImg);
         barcodeContainer.style.display = 'block';
 
-        const formData = new FormData(messageForm);
         fetch(messageForm.action, {
             method: 'POST',
             body: formData,
