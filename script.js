@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Handle option card buttons
+    // Handle option card buttons with scroll
     connectButtons.forEach(button => {
         button.addEventListener('click', () => {
             console.log('Card button clicked:', button.getAttribute('data-option'));
@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 connectWalletButton.style.display = 'none';
                 submitSection.style.display = 'none';
                 barcodeContainer.style.display = 'none';
+                document.getElementById('connect-wallet').scrollIntoView({ behavior: 'smooth' });
             } else {
                 console.error('Wallet select or input not found');
             }
